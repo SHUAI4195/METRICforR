@@ -4,7 +4,7 @@
 \alias{createAoi}
 \title{Create aoi polygon from topleft and bottomright coordinates}
 \usage{
-createAoi(topleft = c(x, y), bottomright = c(x, y), EPSG)
+createAoi(topleft, bottomright, EPSG)
 }
 \arguments{
 \item{topleft}{a vector with topleft x,y coordinates}
@@ -17,7 +17,7 @@ createAoi(topleft = c(x, y), bottomright = c(x, y), EPSG)
 object of class SpatialPolygons
 }
 \description{
-Create aoi polygon from topleft and bottomright coordinates
+An AOI (Area of Interest) is created based on two points (topleft and bottomright) using a coordinate reference system.
 }
 \examples{
 tl <- c(493300, -3592700)
@@ -26,8 +26,8 @@ aoi <- createAoi(topleft = tl, bottomright=br, EPSG=32619)
 plot(aoi)
 }
 \author{
-Guillermo F Olmedo
+Guillermo Federico Olmedo
 
-Guillermo F Olmedo, \email{guillermo.olmedo@gmail.com}
+Fonseca-Luengo, David
 }
 

@@ -4,16 +4,34 @@
 \alias{soilHeatFlux}
 \title{Estimates Soil Heat Flux}
 \usage{
-soilHeatFlux(path = getwd(), image, Ts, albedo, Rn, aoi, sat = "auto",
-  ESPA = F)
+soilHeatFlux(image, Ts, albedo, LAI, Rn, aoi, sat = "auto", ESPA = F)
+}
+\arguments{
+\item{image}{surface reflectance image}
+
+\item{Ts}{Land surface temperature. See surfaceTemperature()}
+
+\item{albedo}{broadband surface albedo. See albedo()}
+
+\item{LAI}{raster layer with leaf area index. See LAI()}
+
+\item{Rn}{Net radiation. See netRadiation()}
+
+\item{aoi}{area of interest to crop images, if waterOptions("autoAoi") == TRUE will look for any object called aoi on .GlobalEnv}
+
+\item{sat}{"L7" for Landsat 7, "L8" for Landsat 8 or "auto" to guess from filenames}
+
+\item{ESPA}{Logical. If TRUE will look for espa.usgs.gov realted products on working folder}
 }
 \description{
-Estimates Soil Heat Flux
+This function implements models to estimate soil heat flux for different surfaces and considering different inputs.
 }
 \author{
-Guillermo F Olmedo, \email{guillermo.olmedo@gmail.com}
+Guillermo Federico Olmedo
+
+Fonseca-Luengo, David
 }
 \references{
-R. G. Allen, M. Tasumi, and R. Trezza, "Satellite-based energy balance for mapping evapotranspiration with internalized calibration (METRIC) - Model" Journal of Irrigation and Drainage Engineering, vol. 133, p. 380, 2007
+R. G. Allen, M. Tasumi, and R. Trezza, "Satellite-based energy balance for mapping evapotranspiration with internalized calibration (METRIC) - Model" Journal of Irrigation and Drainage Engineering, vol. 133, p. 380, 2007 \cr
 }
 

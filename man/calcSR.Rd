@@ -4,16 +4,35 @@
 \alias{calcSR}
 \title{Calculates surface reflectance for L7}
 \usage{
-calcSR(path = getwd(), image.TOAr, sat = "auto", ESPA = FALSE,
-  format = "tif", aoi, incidence.hor, WeatherStation, surface.model)
+calcSR(image.TOAr, sat = "auto", ESPA = FALSE, aoi, incidence.hor,
+  WeatherStation, surface.model)
+}
+\arguments{
+\item{image.TOAr}{raster stack. top of atmosphere reflectance image}
+
+\item{sat}{"L7" for Landsat 7, "L8" for Landsat 8 or "auto" to guess from filenames}
+
+\item{ESPA}{Logical. If TRUE will look for espa.usgs.gov related products on working folder}
+
+\item{aoi}{area of interest to crop images, if waterOptions("autoAoi") == TRUE will look for any object called aoi on .GlobalEnv}
+
+\item{incidence.hor}{solar incidence angle, considering plain surface}
+
+\item{WeatherStation}{Weather Station data}
+
+\item{surface.model}{rasterStack with DEM, Slope and Aspect. See surface.model()}
 }
 \description{
-Calculates surface reflectance for L7
+Calculates surface reflectance from top of atmosphere radiance using the model developed by Tasumi et al. (2008) and Allen et al. (2007), which considers a band-by-band basis.
 }
 \author{
-Guillermo F Olmedo, \email{guillermo.olmedo@gmail.com}
+Guillermo Federico Olmedo
+
+Fonseca-Luengo, David
 }
 \references{
-R. G. Allen, M. Tasumi, and R. Trezza, "Satellite-based energy balance for mapping evapotranspiration with internalized calibration (METRIC) - Model" Journal of Irrigation and Drainage Engineering, vol. 133, p. 380, 2007
+Tasumi M.; Allen R.G. and Trezza, R. At-surface albedo from Landsat and MODIS satellites for use in energy balance studies of evapotranspiration Journal of Hydrolog. Eng., 2008, 13, (51-63) \cr
+
+R. G. Allen, M. Tasumi, and R. Trezza, "Satellite-based energy balance for mapping evapotranspiration with internalized calibration (METRIC) - Model" Journal of Irrigation and Drainage Engineering, vol. 133, p. 380, 2007 \cr
 }
 

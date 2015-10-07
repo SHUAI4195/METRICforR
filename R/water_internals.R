@@ -20,7 +20,7 @@ saveLoadClean <- function(imagestack, stack.names=NULL, file, ...){
   tstamp <- NULL
   if(!getOption("waterOverwrite")){
     tstamp <- paste0("_", strftime(Sys.time(), format = "%Y%m%d%H%M%S"))}
-  tmpdir <- getOption("waterDestFolder")
+  tmpdir <- getOption("waterOutputFolder")
   lastchar = substr(tmpdir, nchar(tmpdir), nchar(tmpdir))
   if (lastchar != "/" & lastchar != "\\") {
     tmpdir <- paste0(tmpdir, "/")
@@ -29,24 +29,12 @@ saveLoadClean <- function(imagestack, stack.names=NULL, file, ...){
   resultfile <- paste0(tmpdir, file, tstamp, ".tif")
   writeRaster(imagestack, filename = resultfile, ...)
   message(paste("Result saved as", paste0(tmpdir, file, tstamp, ".tif"), "    OK"))
-  stack <- stack(file)
+  stack <- stack(resultfile)
   names(stack) <- stack.names
   removeTmpFiles(h=0)
   return(stack)
 }
 
-
-#' Calculates short wave transmisivity
-#' @author Guillermo F Olmedo, \email{guillermo.olmedo@@gmail.com}
-#' @references 
-#' R. G. Allen, M. Tasumi, and R. Trezza, "Satellite-based energy balance for mapping evapotranspiration with internalized calibration (METRIC) - Model" Journal of Irrigation and Drainage Engineering, vol. 133, p. 380, 2007
-SWtrasmisivity <- function(Kt = 1, ea, dem, incidence.hor){
-  P <- 101.3*((293-0.0065 * dem)/293)^5.26
-  W <- 0.14 * ea * P + 2.1
-  sw.t <- 0.35 + 0.627 * exp((-0.00149 * P / Kt * 
-                                cos(incidence.hor))-0.075*(W / cos(incidence.hor))^0.4)
-  return(sw.t)
-}
 
 aoiCrop <- function(raster, aoi){
   if(!missing(aoi)){
