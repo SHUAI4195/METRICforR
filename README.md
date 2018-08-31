@@ -1,7 +1,7 @@
 #Package: water#
 Title: Actual Evapotranspiration with Surface Energy Balance models
 
-Author: Guillermo Federico Olmedo, Samuel Ortega-Farías, David Fonseca-Luengo and
+Author: Guillermo Federico Olmedo, Fernando Fuentes-Peñailillo, Samuel Ortega-Farías, David Fonseca-Luengo and
   Daniel de la Fuente-Saiz
 
 Maintainer: Guillermo Federico Olmedo <guillermo.olmedo@gmail.com>
