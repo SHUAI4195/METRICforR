@@ -70,7 +70,6 @@ First, we create the AOI as a polygon using bottomright and topleft points:
 aoi <- createAoi(topleft = c(273110, -3914450), 
                  bottomright = c( 288050, -3926650), EPSG = 32619)
 ```
-
 Then, we load weather station data. For that, we use `read.WSdata` function. 
 This command transforms our .csv file into a `waterWeatherStation` object. 
 Then, we provide a Landsat metadata file (.MTL file). 
